@@ -3063,15 +3063,13 @@ impl<'a> Transaction<'a> {
                     position,
                     &mut result,
                 );
-                if !has_local_completions {
-                    self.add_autoimport_completions(
-                        handle,
-                        &identifier,
-                        &mut result,
-                        import_format,
-                        supports_completion_item_details,
-                    );
-                }
+                self.add_autoimport_completions(
+                    handle,
+                    &identifier,
+                    &mut result,
+                    import_format,
+                    supports_completion_item_details,
+                );
                 // If autoimport completions were skipped due to character threshold,
                 // mark the results as incomplete so clients keep asking for completions.
                 // This ensures autoimport completions will be checked once the threshold is reached,
